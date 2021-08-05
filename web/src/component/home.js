@@ -12,16 +12,12 @@ export default class Home extends Component {
         else {
             return (
                 <div>
-                    <h1>Welcome to the world of Geeks!</h1>
-                    <button onClick={doLogout}>signout</button>
+                    <h1>Selamat Datang di program colorPicker</h1>
+                    jika sudah memilih warna maka muncul list warna, jika belum memilih warna maka muncul pilihan warna
+                    <button onClick={this.props.doLogout}>signout</button>
                 </div>
             )
         }
     }
 
-}
-
-function doLogout() {
-    ReactSession.set('id', '');
-    window.location.reload();
 }

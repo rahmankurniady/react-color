@@ -7,7 +7,7 @@ export default class Login extends Component {
         return (
             <div className="login-wrapper">
                 <h2>Signup</h2>
-                <form onSubmit={doSignup}>
+                <form onSubmit={this.props.doSignup}>
                     <div className="form-group">
                         <label>Email </label>
                         <input type="email" className="form-control" placeholder="Email" onChange={(e) => { this.props.handleChange(e) }} required />
@@ -29,10 +29,4 @@ export default class Login extends Component {
             </div>
         )
     }
-}
-
-function doSignup(event) {
-    event.preventDefault();
-    alert("Account and berhasil di buat");
-
 }
