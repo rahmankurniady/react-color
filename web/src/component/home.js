@@ -13,7 +13,7 @@ export default class Home extends Component {
             return (
                 <div>
                     <h1>Selamat Datang di program colorPicker</h1>
-                    jika sudah memilih warna maka muncul list warna, jika belum memilih warna maka muncul pilihan warna
+                    <p>jika sudah memilih warna maka muncul list warna, jika belum memilih warna maka muncul pilihan warna</p>
                     <button onClick={this.props.doLogout}>signout</button>
                 </div>
             )
