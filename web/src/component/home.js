@@ -13,17 +13,18 @@ export default class Home extends Component {
         }
         else {
             return (
-                <div>
+                <div className="home-wrapper">
                     <h1>Welcome Back {ReactSession.get('username')} </h1>
-                    <p>Today is {this.props.date}</p>
+                    <p>Today is {this.props.date} </p>
                     {
                         (this.props.show_form_color === false) ?
                             <Tablecolor {...this.props} />
                             :
                             <Formcolor submitColor={this.props.submitColor} handleCheck={this.props.handleCheck} />
                     }
-                    <button onClick={this.props.doLogout}>signout</button>
+                    <button className="btn" onClick={this.props.doLogout}>SignOut</button>
                 </div>
+
             )
         }
     }
