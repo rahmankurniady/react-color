@@ -38,7 +38,7 @@ app.get('/', (request, response) => {
 app.get('/test', db.test)
 app.post('/dologin', db.dologin)
 app.post('/dosignup', db.doSignup)
-app.get('/getColor', db.getColor)
+app.post('/getcolor', db.getColor)
 app.post('/putColor', db.putColor)
 
 app.listen(port, () => {

@@ -3,6 +3,8 @@ import { Redirect } from "react-router-dom";
 import React from 'react';
 import { ReactSession } from 'react-client-session';
 import { Component } from 'react'
+import Formcolor from './formcolor';
+import Tablecolor from "./tablecolor";
 
 export default class Home extends Component {
     render() {
@@ -12,8 +14,14 @@ export default class Home extends Component {
         else {
             return (
                 <div>
-                    <h1>Selamat Datang di program colorPicker</h1>
-                    <p>jika sudah memilih warna maka muncul list warna, jika belum memilih warna maka muncul pilihan warna</p>
+                    <h1>Welcome Back {ReactSession.get('username')} </h1>
+                    <p>Today is {this.props.date}</p>
+                    {
+                        (this.props.show_form_color === false) ?
+                            <Tablecolor {...this.props} />
+                            :
+                            <Formcolor submitColor={this.props.submitColor} handleCheck={this.props.handleCheck} />
+                    }
                     <button onClick={this.props.doLogout}>signout</button>
                 </div>
             )

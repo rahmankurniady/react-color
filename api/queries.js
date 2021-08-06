@@ -85,6 +85,7 @@ const doSignup = (request, response) => {
                 response.status(200).json(
                     {
                         success: 'Insert',
+                        msg: 'Your account successfully created'
                     }
                 )
             })
@@ -95,25 +96,25 @@ const doSignup = (request, response) => {
 }
 
 const getColor = (request, response) => {
-    const { id } = request.body
+    const { id_user } = request.body
 
-    //Check Email Exist
-    pool.query('SELECT * from data_color where id_user=$1', [id], (error, results) => {
+    //Check Data
+    pool.query('SELECT * from data_color where id_user=$1', [id_user], (error, results) => {
         if (error) {
             throw error
         }
 
-        if (results.rowCount > 0) {
-            //Data Exist
-            response.status(200).json(results.rows)
-        }
-        else {
-            response.status(205).json(
-                {
+        if (results.rowCount == 0) {
+            response.status(200).json(
+                [{
                     success: 'false',
                     msg: 'No Data'
-                }
+                }]
             )
+        }
+        else {
+            //Data Exist
+            response.status(200).json(results.rows)
         }
     })
 }

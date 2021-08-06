@@ -10,15 +10,15 @@ export default class Login extends Component {
                 <form onSubmit={this.props.doSignup}>
                     <div className="form-group">
                         <label>Email </label>
-                        <input type="email" className="form-control" placeholder="Email" onChange={(e) => { this.props.handleChange(e) }} required />
+                        <input type="email" className="form-control" name="email" onChange={(e) => { this.props.handleChange(e) }} required />
                     </div>
                     <div className="form-group">
                         <label>Username </label>
-                        <input type="text" className="form-control" placeholder="Username" onChange={(e) => { this.props.handleChange(e) }} required />
+                        <input type="text" className="form-control" name="username" onChange={(e) => { this.props.handleChange(e) }} required />
                     </div>
                     <div className="form-group">
                         <label >Password</label>
-                        <input type="password" className="form-control" placeholder="Password" onChange={(e) => { this.props.handleChange(e) }} required />
+                        <input type="password" className="form-control" name="password" onChange={(e) => { this.props.handleChange(e) }} required />
                     </div>
                     <div className="form-check">
                         Already have an account? <a href="/login">Sign In</a>
