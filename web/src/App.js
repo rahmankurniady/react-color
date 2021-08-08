@@ -24,7 +24,8 @@ class App extends Component {
       color_yellow: 0,
       color_purple: 0,
       show_form_color: false,
-      date: ''
+      date: '',
+      url: 'http://localhost:5000/'
     }
   }
 
@@ -50,7 +51,7 @@ class App extends Component {
 
   doLogin = (event) => {
     event.preventDefault();
-    fetch("http://localhost:5000/dologin", {
+    fetch(this.state.url + "dologin", {
       "method": "POST",
       "headers": {
         "content-type": "application/json",
@@ -91,7 +92,7 @@ class App extends Component {
     if (!this.state.password) {
       return;
     }
-    fetch("http://localhost:5000/doSignup", {
+    fetch(this.state.url + "doSignup", {
       "method": "POST",
       "headers": {
         "content-type": "application/json",
@@ -131,7 +132,7 @@ class App extends Component {
       alert("Please Select Color Before Submit")
     }
     else {
-      fetch("http://localhost:5000/putColor", {
+      fetch(this.state.url + "putColor", {
         "method": "POST",
         "headers": {
           "content-type": "application/json",
@@ -161,7 +162,7 @@ class App extends Component {
   async componentDidMount() {
 
     if (ReactSession.get('id') !== '') {
-      fetch("http://localhost:5000/getcolor", {
+      fetch(this.state.url + "getcolor", {
         "method": "POST",
         "headers": {
           "content-type": "application/json",
